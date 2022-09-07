@@ -4,6 +4,7 @@ let audioTurn = new Audio("ting.mp3");
 let gameover = new Audio("gameover.mp3");
 let turn = "X";
 let gameovers = false;
+let x;
 
 //function to change turn
 const changeTurn = () => {
@@ -13,27 +14,51 @@ const changeTurn = () => {
 const checkWin = () => {
     let boxtext = document.getElementsByClassName("boxtext")
     let win = [
-        [0, 1, 2, 0, 9, 0],
-        [0, 3, 6, -20.2, 30, 90],
-        [0, 4, 8, 0, 30, 45],
-        [1, 4, 7, 0, 30, 90],
-        [3, 4, 5, 0, 29.5, 0],
-        [2, 5, 8, 20.5, 30, 90],
-        [2, 4, 6, 0, 30, 135],
-        [6, 7, 8, 0, 50, 0],
+        [0, 1, 2, 0, 9.5, 0,0,5.9],
+        [0, 3, 6, -20.2, 30, 90,-13.5,19.5],
+        [1, 4, 7, 0, 30, 90, -0.2, 19.5],
+        [3, 4, 5, 0, 29.5, 0,0,19],
+        [2, 5, 8, 20.4, 30, 90, 13, 19.5],
+        [2, 4, 6, -10, 30, 135,-5,18.5],
+        [0, 4, 8, -10, 30, 45, -5, 19.5],
+        [6, 7, 8, 0, 49.7, 0,0,32.4],
     ]
+    
     win.forEach((e) => {
+        let x = ()=>{
+             if (e[5]===45||e[5]===135) {
+                 line.style.width = "80vh"
+             }
+             else{
+                 line.style.width = "60vh"
+             }
+         }
+        let y = ()=>{
+             if (e[5]===45||e[5]===135) {
+                 line.style.width = "50vh"
+             }
+             else{
+                 line.style.width = "40vh"
+             }
+         }
         if ((boxtext[e[0]].innerText === boxtext[e[1]].innerText) && (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !== "")) {
             document.querySelector(".info").innerText = boxtext[e[0]].innerText + " is won"
             gameovers = true
             document.querySelector(".img-box").getElementsByTagName('img')[0].style.width = "50%"
-            document.querySelector(".line").style.transform = `translate(${e[3]}vh,${e[4]}vh) rotate(${e[5]}deg)`
-            document.querySelector(".line").style.width="60vh"
+            line = document.querySelector(".line")
+            // line.style.width = "60vh"
+            window.innerWidth < 950
+                ? (line.style.transform = `translate(${e[6]}vh,${e[7]}vh) rotate(${e[5]}deg)`,
+                    y())
+                : (line.style.transform = `translate(${e[3]}vh,${e[4]}vh) rotate(${e[5]}deg)`,
+                    x())
+
             gameover.play();
         }
-       
+      
     })
 }
+
 //game logic
 let boxs = document.getElementsByClassName("box");
 Array.from(boxs).forEach((element) => {
@@ -47,7 +72,7 @@ Array.from(boxs).forEach((element) => {
             if (!gameovers) {
 
                 document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-              
+
             }
         }
     })
@@ -62,7 +87,7 @@ reset.addEventListener('click', () => {
         gameovers = false
         document.querySelector(".img-box").getElementsByTagName('img')[0].style.width = "0%"
         // document.querySelector(".line").style.transform = ""
-        document.querySelector(".line").style.width="0"
+        document.querySelector(".line").style.width = "0"
 
 
     })
