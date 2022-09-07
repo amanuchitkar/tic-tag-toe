@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+nav {
+    font-family: 'Lato', sans-serif;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    width: 100%;
+}
+ nav::after{
+    content: "";
+    background: rgb(255 255 255 / 40%) url("/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: lighten;
+    position: absolute;
+    z-index: -1;
+    margin-top: 108vh;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav li {
+    list-style: none;
+    padding: 5px;
+    margin: 4px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.container-right {
+    font-family: 'Rubik', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, 20vh);
+    grid-template-rows: repeat(3, 20vh);
+    padding: 2rem;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid black;
+    font-size: 12vh;
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: rgba(255, 255, 255, 0.219);
+    color: rgb(255, 0, 0);
+}
+
+.box:active {
+    color: rgb(6, 255, 6);
+}
+
+.boxtext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-container {
+    padding: 2rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1rem;
+}
+
+.info {
+    font-size: 1.2rem;
+    font-family: 'Rubik', sans-serif;
+    margin-inline-start:2rem;
+    background-color: rgba(255, 255, 255, 0.219);
+    padding: 3.5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.img-box img {
+    /* display: none; */
+    width: 0;
+    transition: width 1s ease-in-out;
+
+}
+#reset{
+    padding: 3px;
+    border-radius: 6px;
+    margin-inline: 11px;
+    font-size: 1.3rem;
+    width: 90px;
+    background: none;
+}
+#reset:hover{
+    background-color: rgba(255, 255, 255, 0.219);
+}
+#reset:active{
+    transform: scale(1.2);
+    color: rgb(41, 41, 41);
+}
+.line{
+    background-color: #15ff00cc;
+    width:0;
+    height:3px;
+    position: absolute;
+    /* transform: translate(20vh,30vh) rotate(90deg); */
+    transition: width 1s ease-in-out;
+}
+.imp{
+    margin-block:7px ;
+}
+.br-0 {
+    border-right: 0;
+}
+
+.bl-0 {
+    border-left: 0;
+}
+
+.bt-0 {
+    border-top: 0;
+}
+
+.bb-0 {
+    border-bottom: 0;
+}

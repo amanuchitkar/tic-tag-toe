@@ -1,0 +1,28 @@
+@media only screen and (max-width:900px) {
+    nav li h2{
+        font-size: 1rem;
+    }
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-right{
+        margin: 2rem;
+        padding: 0;
+        grid-template-columns: repeat(3,13vh);
+    grid-template-rows: repeat(3,13vh);
+    }
+    .info-container{
+        padding: 0%;
+        margin-block: 2rem;
+        text-align: center;
+    }
+    .box{
+        font-size: 10vh;
+    }
+    #reset{
+        font-size: 1.1rem;
+        width: 80px;
+    }
+   
+}
